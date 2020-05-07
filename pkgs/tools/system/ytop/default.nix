@@ -4,26 +4,22 @@ assert stdenv.isDarwin -> IOKit != null;
 
 rustPlatform.buildRustPackage rec {
   pname = "ytop";
-  version = "0.4.0";
+  version = "0.6.0";
 
   src = fetchFromGitHub {
     owner = "cjbassi";
     repo = pname;
     rev = version;
-    sha256 = "1158nlg5b93jyljwvf9f2m8m3ph8sksk5dh9sfnvbiifbk4gizv7";
+    sha256 = "1zajgzhhxigga5wc94bmbk8iwx7yc2jq3f0hqadfsa4f0wmpi0nf";
   };
 
   buildInputs = stdenv.lib.optionals stdenv.isDarwin [ IOKit ];
 
-  # Delete this on next update; see #79975 for details
-  legacyCargoFetcher = true;
-
-  cargoSha256 = "11pcchwahcwdvmfwfs6j2zg23grlw538wfs90mvqy2mpccj7d3ys";
-  verifyCargoDeps = true;
+  cargoSha256 = "1ka9d81ddzz52w75xdiwd2xkv1rlamyvvdax09wanb61zxxwm0i7";
 
   meta = with stdenv.lib; {
     description = "A TUI system monitor written in Rust";
-    homepage = https://github.com/cjbassi/ytop;
+    homepage = "https://github.com/cjbassi/ytop";
     license = licenses.mit;
     maintainers = with maintainers; [ sikmir ];
     platforms = platforms.unix;

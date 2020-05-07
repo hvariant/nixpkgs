@@ -2,19 +2,19 @@
 
 buildGoModule rec {
   pname = "gh";
-  version = "0.5.5";
+  version = "0.7.0";
 
   src = fetchFromGitHub {
     owner = "cli";
     repo = "cli";
     rev = "v${version}";
-    sha256 = "0jmkcx95kngzylqhllg33s094rggpsrgky704z8v6j4969xgrfnc";
+    sha256 = "054mag8jgxkvx2f95ha10n45v4xv5lms69w76g95z18m62qhjcyl";
   };
 
-  modSha256 = "0ina3m2ixkkz2fws6ifwy34pmp6kn5s3j7w40alz6vmybn2smy1h";
+  modSha256 = "0v33x9bnwjfg4425vralnsb4i22c0g1rcmaga9911v0i7d51k0fn";
 
   buildFlagsArray = [
-    "-ldflags=-X github.com/cli/cli/command.Version=${version}"
+    "-ldflags=-s -w -X github.com/cli/cli/command.Version=${version}"
   ];
 
   subPackages = [ "cmd/gh" ];

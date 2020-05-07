@@ -5,11 +5,11 @@
 
 stdenv.mkDerivation rec {
   pname = "avocode";
-  version = "4.2.2";
+  version = "4.6.2";
 
   src = fetchurl {
     url = "https://media.avocode.com/download/avocode-app/${version}/avocode-${version}-linux.zip";
-    sha256 = "0f4cmai2d1x7wbqllxp9na6gxgqfxqav8n4g9azyvm6ymd8zjnx8";
+    sha256 = "1ldvscxfvwpsir8vr1ca9ra0841m6xy331ys31dngcp77nwncjqc";
   };
 
   libPath = stdenv.lib.makeLibraryPath (with xorg; [
@@ -93,7 +93,7 @@ stdenv.mkDerivation rec {
   enableParallelBuilding = true;
 
   meta = with stdenv.lib; {
-    homepage = https://avocode.com/;
+    homepage = "https://avocode.com/";
     description = "The bridge between designers and developers";
     license = licenses.unfree;
     platforms = platforms.linux;
